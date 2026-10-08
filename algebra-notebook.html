@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Algebra Notebook Worksheets</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;--ink:#1d4fd8;--green:#6aa820;--rule:#cfe3f3;--lav:#b9a3e3}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:#d9d3c3;font-family:'Patrick Hand','Comic Sans MS',cursive;color:#444;font-size:20px}
+.page{position:relative;max-width:780px;margin:12px auto;padding:20px 18px 40px 74px;background:#fffef7 repeating-linear-gradient(transparent 0 31px,var(--rule) 31px 32px);box-shadow:0 2px 10px rgba(0,0,0,.25);border-radius:4px;max-width:calc(100% - 16px)}
+@media(min-width:800px){.page{max-width:780px}}
+.page:before{content:"";position:absolute;left:54px;top:0;bottom:0;border-left:2px solid #f0a0a0}
+h1{margin:0;font-size:32px;font-weight:400;line-height:32px}
+.top{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;min-height:64px}
+.top input{font:inherit;border:0;border-bottom:2px dotted #888;background:transparent;width:170px;color:var(--ink)}
+.score{background:#fff6a8;padding:2px 12px;transform:rotate(-2deg);box-shadow:1px 1px 4px rgba(0,0,0,.2)}
+.how{margin:0 0 32px;line-height:32px}
+.q{margin:0 0 32px}
+h2{margin:32px 0 0;font-size:26px;font-weight:400;line-height:32px;text-decoration:underline wavy var(--green);text-underline-offset:6px}
+.q p{margin:0;line-height:32px}
+.ladder{margin:16px 0 0;padding:0;width:max-content;max-width:100%;overflow-x:auto}
+.r{display:flex}
+.r input,.r span{height:48px;width:72px;border:0;border-bottom:2px solid #d9cbf3;background:transparent;text-align:center;font:600 30px 'Caveat',cursive;color:var(--ink);min-width:0;padding:0;line-height:48px;display:block}
+.r input:focus{outline:2px solid #ffb400;outline-offset:-2px;background:#fff9d6}
+.r .p{width:56px;color:var(--green);border-right:2px solid var(--lav)}
+.r span{color:#555;font-family:'Patrick Hand',cursive;font-weight:400;font-size:26px}
+.r span.p{color:var(--green)}
+.ctl{margin:8px 0 12px;display:flex;gap:8px}
+button{font:inherit;font-size:18px;border:2px solid #555;background:#fff;border-radius:8px;padding:2px 12px;cursor:pointer;color:#333}
+button:hover{background:#fff3b0}
+button.go{background:#6aa820;color:#fff;border-color:#4d7f14}
+.ans{line-height:48px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.ans input{font:600 28px 'Caveat',cursive;color:var(--ink);border:0;border-bottom:2px solid #555;background:transparent;width:150px;text-align:center}
+.ans input.w{width:90px}
+.fb{margin:6px 0 0;font-weight:700;min-height:32px}
+.fb.ok{color:#2f8a1f}.fb.no{color:#c0392b}
+.sol{margin-top:8px;padding:6px 12px 10px;border:2px dashed var(--green);border-radius:8px;background:#f7ffe9;display:none}
+.sol.show{display:block}
+.sol .g{color:var(--green);font-size:24px;line-height:36px}
+.sol .tag{line-height:32px}
+.done.ok{background:#e4f5d6}
+#pdfmsg{font-size:16px}
+
+button{transition:transform .15s,background .2s,box-shadow .2s}
+button:hover{transform:translateY(-2px);box-shadow:0 3px 6px rgba(0,0,0,.18)}
+button:active{transform:scale(.96)}
+button.big{font-size:24px;padding:6px 26px}
+.endrow{text-align:center;margin-top:32px}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.r{animation:rowin .35s ease both}
+.score{animation:float 4s ease-in-out infinite alternate}
+.score.pop{animation:pop .5s ease,float 4s ease-in-out .5s infinite alternate}
+.sol.show{animation:drop .5s ease}
+.fb.ok{animation:bounce .6s ease}
+.fb.no{animation:shake .4s ease}
+h1{animation:rowin .8s ease both}
+@keyframes rowin{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes float{from{transform:rotate(-2deg) translateY(0)}to{transform:rotate(-1deg) translateY(-3px)}}
+@keyframes pop{0%{transform:rotate(-2deg) scale(1)}40%{transform:rotate(2deg) scale(1.25)}100%{transform:rotate(-2deg) scale(1)}}
+@keyframes drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes bounce{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes card{from{opacity:0;transform:scale(.8) rotate(-2deg)}to{opacity:1;transform:none}}
+.ov{position:fixed;inset:0;background:rgba(40,35,25,.55);display:none;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));z-index:10}
+.ov.show{display:flex;animation:fade .3s}
+.card{background:#fffef7;border:3px solid #6aa820;border-radius:12px;padding:20px;max-width:420px;width:100%;max-height:100%;overflow:auto;text-align:center;animation:card .45s cubic-bezier(.2,1.4,.4,1)}
+.card h3{margin:0;font-weight:400;font-size:30px}
+.card .big{font:600 64px 'Caveat',cursive;color:var(--ink);line-height:1.1}
+.lrow{display:flex;justify-content:space-between;border-bottom:2px dotted #bbb;padding:2px 4px}
+.card .btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.ln{display:flex;align-items:center}
+.ln span{width:34px;text-align:center;font:600 28px 'Caveat',cursive;color:#555}
+.ln input{flex:1;min-width:0;height:40px;border:0;background:transparent;font:600 28px 'Caveat',cursive;color:var(--ink);padding:0}
+.ln input:focus{outline:2px solid #ffb400;background:#fff9d6}
+.ans{margin-top:6px}.ans input{width:210px}
+.tg{font-size:15px;padding:0 9px;border-radius:10px;background:#e4f5d6;color:#2f6a12;margin-right:4px}.tg.w{background:#e6e0ff;color:#4b3aa8}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:24px}
+.tc{text-align:left;background:#fff;border:2px solid var(--lav);border-radius:14px;padding:14px;font-size:20px;line-height:28px;animation:rowin .6s ease both}
+.tc:hover{background:#f6f0ff}.tc .em{font-size:34px;display:block}
+.bub{display:none;position:relative;margin:16px 0 4px 20px;padding:10px 16px;background:#fff3b0;border:2px solid #e0b400;border-radius:18px;line-height:28px}
+.bub.show{display:block;animation:bubin .55s cubic-bezier(.2,1.4,.4,1)}
+.bub:before{content:"";position:absolute;left:26px;top:-14px;border:12px solid transparent;border-top:0;border-bottom:14px solid #e0b400}
+.bub p{margin:4px 0}.bub u{text-decoration:none;font-weight:700;color:#8a6500}
+.bub .sl{font:600 26px 'Caveat',cursive;color:var(--ink);padding-left:14px;line-height:30px}
+@keyframes bubin{from{opacity:0;transform:scale(.7) translateY(-12px)}to{opacity:1;transform:none}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script></head>
+<body>
+<div class="page">
+ <div class="top"><h1 id="ttl">Algebra Notebook</h1><div>Name: <input id="nm" aria-label="Name"></div><button id="mbtn" onclick="toggleMusic()">&#127925; Music: off</button> <div class="score" id="score">Score: 0 / 12</div></div>
+ <div id="menu"></div>
+ <div id="ws" style="display:none">
+  <div class="ctl"><button onclick="home()">&larr; Topics</button><button id="pdfbtn" onclick="savePDF()">Save as PDF</button><span id="pdfmsg"></span></div>
+  <p class="how">Show your working on the lines (each new line starts with =), then type your final answer in the box. Write expressions like 3x+2 or (y-5)/2, and inequalities like x&gt;4 or x&lt;=7.</p>
+  <div id="qs"></div>
+  <div class="endrow"><button class="go big" onclick="endWS()">End worksheet</button></div>
+ </div>
+</div>
+<div class="ov" id="end" role="dialog" aria-modal="true"><div class="card"><div id="endbody"></div>
+<div class="btns"><button class="go" onclick="newWS()">New worksheet</button><button onclick="home()">Choose topic</button><button onclick="savePDF()">Save as PDF</button><button onclick="closeEnd()">Keep working</button></div><div id="pdfmsg2"></div></div></div>
+<script>
+
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))},pick=function(a){return a[R(0,a.length-1)]};
+function N(n){return n<0?'−'+(-n):''+n}
+function lin(c,k,v){v=v||'x';return c+v+(k?(k<0?' − '+(-k):' + '+k):'')}
+function Z(q,ty,f,disp,mis,sol,vs){return{q:q,ty:ty,f:f,disp:disp,mis:mis,sol:sol,vs:vs||['x']}}
+var OS={'>':'>','<':'<','>=':'≥','<=':'≤'},OP=['>','<','>=','<='];
+var TOP=[['Expressions','✏️','Simplify, substitute and expand'],['Equations','⚖️','Solve for the unknown'],['Formulae','📐','Substitute and rearrange'],['Sequences','🔢','Patterns and the nth term'],['Inequalities','↔️','Solve and use < > ≤ ≥'],['Graphs','📈','Gradient and y = mx + c']];
+var TS=[[
+function(h){var U=h?19:9,a=R(2,U),b=R(2,U),c=R(1,a+b-1),r=a+b-c;return Z('Simplify '+a+'x + '+b+'x − '+c+'x','e',function(v){return r*v.x},r+'x','Dropping the letter x, or adding when you should subtract.',['Like terms have the same letter, so add and subtract only their numbers.',a+'x + '+b+'x − '+c+'x = ('+a+' + '+b+' − '+c+')x','= '+r+'x'])},
+function(h){var U=h?9:5,m=R(2,U),n=R(2,U),k=R(2,U),r=m+n*k;return Z('A pen costs $p. A book costs '+k+' times as much as a pen. Write a simplified expression for the cost in dollars of '+m+' pens and '+n+' books.','e',function(v){return r*v.p},r+'p','Writing '+n+'p for the books, forgetting each book costs '+k+'p.',['Write every cost using p first, then add like terms.',m+' pens = '+m+'p','1 book = '+k+'p, so '+n+' books = '+(n*k)+'p','Total = '+m+'p + '+(n*k)+'p = '+r+'p'],['p'])},
+function(h){var U=h?9:5,a=R(2,U),b=R(2,U),x=R(1,U),y=-R(1,U),r=a*x+b*y;return Z('Work out '+a+'p + '+b+'q when p = '+x+' and q = '+N(y)+'.','n',r,''+r,'Losing the minus sign when multiplying by a negative number.',['Replace each letter with its number. Put negatives in brackets so the sign is not lost.',a+' × '+x+' + '+b+' × ('+N(y)+')','= '+(a*x)+' + ('+(b*y)+')','= '+r])},
+function(h){var U=h?15:9,a=R(3,U),c=R(2,U),A=R(2,8),C=R(3,12),r=a*A+c*C;return Z('Tickets cost $'+a+' for an adult and $'+c+' for a child. The total cost in dollars for x adults and y children is '+a+'x + '+c+'y. Find the cost for '+A+' adults and '+C+' children.','n',r,''+r,'Using the adult price for the children, or adding before multiplying.',['Substitute x = '+A+' and y = '+C+'. Multiply first, then add.',a+' × '+A+' + '+c+' × '+C,'= '+(a*A)+' + '+(c*C),'= '+r+' dollars'])},
+function(h){var U=h?12:6,a=R(2,5),b=R(1,U),c=R(2,5),d=R(1,U),k=a*b-c*d;return Z('Expand and simplify '+a+'(x + '+b+') + '+c+'(x − '+d+')','e',function(v){return (a+c)*v.x+k},lin(a+c,k),'Multiplying only the first term in each bracket, or forgetting − '+d+' × '+c+' = −'+(c*d)+'.',['Multiply every term in each bracket by the number outside, then collect like terms.',a+'x + '+(a*b)+' + '+c+'x − '+(c*d),'= '+lin(a+c,k)])},
+function(h){var U=h?15:8,a=R(3,U),b=R(1,a-1),r=2*(a-b);return Z('A rectangle has length (x + '+a+') cm and width (x − '+b+') cm. Write a simplified expression for its perimeter in cm.','e',function(v){return 4*v.x+r},lin(4,r),'Adding length and width only once, which gives half the perimeter.',['Perimeter = 2 × (length + width).','= 2 × ((x + '+a+') + (x − '+b+'))','= 2 × (2x + '+(a-b)+')','= '+lin(4,r)])}
+],[
+function(h){var x=R(2,h?60:15),a=R(2,h?60:15);return Z('Solve x + '+a+' = '+(x+a),'n',x,''+x,'Adding '+a+' to both sides instead of subtracting it.',['To get x alone, do the opposite operation to both sides.','x + '+a+' = '+(x+a),'x = '+(x+a)+' − '+a,'x = '+x])},
+function(h){var U=h?15:8,x=R(2,U),a=R(2,6),b=R(1,U),n=a*x+b;return Z('I think of a number, multiply it by '+a+', then add '+b+'. The answer is '+n+'. What is my number?','n',x,''+x,'Dividing by '+a+' before subtracting '+b+' (undoing the steps in the wrong order).',['Let the number be x, write the equation, then undo the steps in reverse order.',a+'x + '+b+' = '+n,a+'x = '+n+' − '+b+' = '+(a*x),'x = '+(a*x)+' ÷ '+a+' = '+x])},
+function(h){var U=h?15:9,x=R(2,U),a=R(2,7),b=R(1,Math.min(U,a*x-1)),c=a*x-b;return Z('Solve '+a+'x − '+b+' = '+c,'n',x,''+x,'Subtracting '+b+' from both sides instead of adding it.',['Undo the subtraction by adding '+b+' to both sides, then divide by '+a+'.',a+'x = '+c+' + '+b+' = '+(a*x),'x = '+(a*x)+' ÷ '+a+' = '+x])},
+function(h){var x=R(2,h?15:8),k=R(2,5),r=R(1,9),T=k*x+r;return Z('Sam buys '+k+' pens costing the same and one ruler costing $'+r+'. He pays $'+T+' in total. How much is one pen in dollars?','n',x,''+x,'Dividing the total by '+k+' before taking away the ruler.',['Let one pen cost $x and form an equation.',k+'x + '+r+' = '+T,k+'x = '+T+' − '+r+' = '+(k*x),'x = '+(k*x)+' ÷ '+k+' = '+x])},
+function(h){var x=R(1,h?15:8),a=R(3,8),c=R(1,a-1),b=R(1,h?15:8),d=(a-c)*x+b;return Z('Solve '+lin(a,b)+' = '+lin(c,d),'n',x,''+x,'Moving a term to the other side without changing its sign.',['Collect x terms on one side and numbers on the other, doing the same to both sides.',(a-c)+'x = '+d+' − '+b+' = '+(d-b),'x = '+(d-b)+' ÷ '+(a-c)+' = '+x])},
+function(h){var x=R(2,h?12:8),d=R(1,4),b=d+R(1,4),a=R(5,20),c=a+(b-d)*x;return Z('Gym A charges $'+a+' to join plus $'+b+' per visit. Gym B charges $'+c+' to join plus $'+d+' per visit. After how many visits is the total cost the same?','n',x,''+x,'Adding the visit price to the joining fee instead of multiplying by the number of visits.',['Let v be the visits. Set the two total costs equal and solve for v.',a+' + '+b+'v = '+c+' + '+d+'v',(b-d)+'v = '+c+' − '+a+' = '+(c-a),'v = '+(c-a)+' ÷ '+(b-d)+' = '+x])}
+],[
+function(h){var U=h?15:9,u=R(1,U),a=R(2,7),t=R(2,U),r=u+a*t;return Z('Use v = u + at to find v when u = '+u+', a = '+a+' and t = '+t+'.','n',r,''+r,'Adding first: ('+u+' + '+a+') × '+t+'.',['Substitute, then do multiplication before addition.','v = '+u+' + '+a+' × '+t,'v = '+u+' + '+(a*t),'v = '+r])},
+function(h){var a=R(2,9),b=R(2,9),m=R(3,h?30:12),r=a+b*m;return Z('A taxi fare in dollars is C = '+a+' + '+b+'m, where m is the number of miles. Find the fare for '+m+' miles.','n',r,''+r,'Working out ('+a+' + '+b+') × '+m+', which multiplies the starting charge too.',['Substitute m, then multiply before adding.','C = '+a+' + '+b+' × '+m,'C = '+a+' + '+(b*m),'C = '+r+' dollars'])},
+function(h){var a=R(2,h?30:9);return Z('Make x the subject of y = x + '+a,'e',function(v){return v.y-a},'x = y − '+a,'Adding '+a+' to y instead of subtracting it.',['Undo "+ '+a+'" by subtracting '+a+' from both sides.','y − '+a+' = x','x = y − '+a],['y'])},
+function(h){var k=R(2,h?6:3);return Z('The perimeter of a shape is P = '+k+'(l + w). Make l the subject of the formula.','e',function(v){return v.P/k-v.w},'l = P/'+k+' − w','Dividing P by '+k+' but forgetting to subtract w.',['The bracket is multiplied by '+k+', so divide both sides by '+k+' first, then subtract w.','P/'+k+' = l + w','l = P/'+k+' − w'],['P','w'])},
+function(h){var a=R(2,h?9:5),b=R(1,h?20:9);return Z('Make x the subject of y = '+a+'x + '+b,'e',function(v){return (v.y-b)/a},'x = (y − '+b+')/'+a,'Dividing y by '+a+' but forgetting to divide the '+b+' as well.',['Undo operations in reverse order: subtract '+b+' first, then divide everything by '+a+'.','y − '+b+' = '+a+'x','x = (y − '+b+')/'+a],['y'])},
+function(h){var a=R(5,20),b=R(2,9),x=R(2,h?15:8),T=a+b*x;return Z('The cost in dollars of hiring a boat is C = '+a+' + '+b+'h, where h is hours. Rearrange to make h the subject, then find h when C = '+T+'.','n',x,''+x,'Dividing C by '+b+' before subtracting '+a+'.',['Subtract '+a+' from both sides, divide by '+b+', then substitute.','h = (C − '+a+')/'+b,'h = ('+T+' − '+a+')/'+b+' = '+(b*x)+'/'+b+' = '+x])}
+],[
+function(h){var a=R(1,h?30:9),d=R(2,h?12:6);return Z('Find the next term: '+[a,a+d,a+2*d,a+3*d].join(', ')+', ...','n',a+4*d,''+(a+4*d),'Adding the wrong gap between terms.',['The terms increase by the same amount each time (the common difference).','Difference = '+(a+d)+' − '+a+' = '+d,'Next term = '+(a+3*d)+' + '+d+' = '+(a+4*d)])},
+function(h){var a=R(5,20),d=R(2,h?9:5),W=h?10:6;return Z('Lena saves $'+a+' in week 1, $'+(a+d)+' in week 2 and $'+(a+2*d)+' in week 3, and her savings keep increasing by the same amount. How much does she save in week '+W+'?','n',a+(W-1)*d,''+(a+(W-1)*d),'Adding '+d+' '+W+' times instead of '+(W-1)+' times.',['Week 1 is the first term, so we add the difference '+(W-1)+' times to reach week '+W+'.','Week '+W+' = '+a+' + '+(W-1)+' × '+d,'= '+(a+(W-1)*d)+' dollars'])},
+function(h){var a=R(2,h?20:9),d=R(2,h?9:6),c=a-d;return Z('Find the nth term of the sequence '+[a,a+d,a+2*d,a+3*d].join(', ')+', ...','e',function(v){return d*v.n+c},lin(d,c,'n'),'Writing n + '+d+', or forgetting to adjust to match the first term.',['The number in front of n is the common difference. Then adjust so n = 1 gives the first term.','Start with '+d+'n. When n = 1 this gives '+d+', but the first term is '+a,'Adjust by '+(c>=0?'+':'−')+Math.abs(c)+': nth term = '+lin(d,c,'n')],['n'])},
+function(h){var a=R(3,12),d=R(2,h?9:5),n=R(5,h?20:12),T=a+(n-1)*d;return Z('Pattern 1 uses '+a+' sticks, pattern 2 uses '+(a+d)+' and pattern 3 uses '+(a+2*d)+'. Which pattern number uses '+T+' sticks?','n',n,''+n,'Forgetting that pattern 1 is the starting term, so being one out.',['Use the nth term '+lin(d,a-d,'n')+' and set it equal to '+T+'.',d+'n = '+T+' − ('+N(a-d)+') = '+(d*n),'n = '+(d*n)+' ÷ '+d+' = '+n])},
+function(h){var d=R(2,9),c=R(-5,9),n=R(8,25),f=lin(d,c,'n');if(h)return Z('The nth term of a sequence is '+f+'. Which term is equal to '+(d*n+c)+'?','n',n,''+n,'Putting '+(d*n+c)+' in place of n instead of setting the expression equal to it.',['Set the nth term equal to '+(d*n+c)+' and solve for n.',f+' = '+(d*n+c),d+'n = '+(d*n+c)+' − ('+N(c)+') = '+(d*n),'n = '+n]);return Z('The nth term of a sequence is '+f+'. Find the 20th term.','n',20*d+c,''+(20*d+c),'Reading '+d+'n as '+d+' + n instead of '+d+' × n.',['The 20th term means n = 20. Multiply before adding.',d+' × 20 + ('+N(c)+')','= '+(20*d+c)])},
+function(h){var a=R(5,25),d=R(2,h?15:9);return Z('A gym charges $'+a+' to join plus $'+d+' per month. Write an expression for the total cost in dollars after n months.','e',function(v){return a+d*v.n},a+' + '+d+'n','Multiplying the joining fee by n too.',['The joining fee is paid once. Only the monthly cost is multiplied by n.','Monthly part = '+d+'n','Total = '+a+' + '+d+'n'],['n'])}
+],[
+function(h){var a=R(2,h?40:12),b=a+R(1,h?40:12),o=pick(OP);return Z('Solve x + '+a+' '+OS[o]+' '+b,'i',{s:'x',o:o,n:b-a},'x '+OS[o]+' '+(b-a),'Changing the sign direction when only subtracting a number.',['Solve like an equation. Subtract '+a+' from both sides; the sign stays the same.','x '+OS[o]+' '+b+' − '+a,'x '+OS[o]+' '+(b-a)])},
+function(h){var T=R(40,h?90:70),m0=R(20,T-5),n=T-m0;return Z('Ali needs more than '+T+' marks to pass. He has '+m0+' marks. Write and solve an inequality for the extra marks m he needs.','i',{s:'m',o:'>',n:n},'m > '+n,'Writing m > '+T+', ignoring the marks he already has.',['His marks plus the extra marks must be more than '+T+'.',m0+' + m > '+T,'m > '+T+' − '+m0+' = '+n])},
+function(h){var x=R(2,h?15:8),a=R(2,5),b=R(1,Math.min(9,a*x-1)),c=a*x-b,o=pick(OP);return Z('Solve '+a+'x − '+b+' '+OS[o]+' '+c,'i',{s:'x',o:o,n:x},'x '+OS[o]+' '+x,'Reversing the sign when dividing by a positive number.',['Add '+b+' to both sides, then divide by '+a+'. Dividing by a positive number keeps the sign.',a+'x '+OS[o]+' '+c+' + '+b+' = '+(a*x),'x '+OS[o]+' '+x])},
+function(h){var b=R(2,6),d=R(2,5),k=R(4,h?25:15),T=b+d*k;return Z('A taxi charges $'+b+' plus $'+d+' per km. Sara has $'+T+'. Write and solve an inequality for the distance k km she can travel.','i',{s:'k',o:'<=',n:k},'k ≤ '+k,'Using < so the exact distance is left out, or forgetting the $'+b+' starting charge.',['She can spend at most $'+T+', so the cost must be less than or equal to '+T+'.',b+' + '+d+'k ≤ '+T,d+'k ≤ '+(d*k),'k ≤ '+k])},
+function(h){var a=R(2,5),k=R(2,h?12:8),o=pick(['>','<']),F={'>':'<','<':'>'};return Z('Solve −'+a+'x '+o+' '+(a*k),'i',{s:'x',o:F[o],n:-k},'x '+F[o]+' '+(-k),'Dividing by −'+a+' without reversing the inequality sign.',['Dividing (or multiplying) both sides by a negative number reverses the inequality sign.','x '+F[o]+' '+(a*k)+' ÷ (−'+a+')','x '+F[o]+' '+(-k)])},
+function(h){var a=R(2,8),x=R(3,h?20:10),L=4*x+2*a;return Z('A rectangle has width x cm and length (x + '+a+') cm. Its perimeter must be less than '+L+' cm. Find the possible values of x.','i',{s:'x',o:'<',n:x},'x < '+x,'Using width + length < '+L+' and forgetting to double for the perimeter.',['Perimeter = 2 × (width + length), and it must be less than '+L+'.','2(x + x + '+a+') < '+L+', so 4x + '+(2*a)+' < '+L,'4x < '+(4*x)+', so x < '+x])}
+],[
+function(h){var a=R(2,h?9:5),b=R(-5,9),X=R(-3,h?8:5),r=a*X+b;return Z('Find y when x = '+N(X)+' on the line y = '+lin(a,b),'n',r,''+r,'Ignoring the negative sign of x, or adding before multiplying.',['Substitute x, keeping brackets round negatives, and multiply first.','y = '+a+' × ('+N(X)+') + ('+N(b)+')','y = '+(a*X)+' + ('+b+') = '+r])},
+function(h){var a=R(10,40),b=R(5,h?30:15),H=R(2,h?9:6),r=a+b*H;return Z('A plumber charges y = '+a+' + '+b+'x dollars for a job lasting x hours. How much does a '+H+'-hour job cost?','n',r,''+r,'Working out ('+a+' + '+b+') × '+H+', multiplying the fixed charge too.',['The '+a+' is a fixed charge. Only the hourly rate '+b+' is multiplied by the hours.','y = '+a+' + '+b+' × '+H,'y = '+a+' + '+(b*H)+' = '+r+' dollars'])},
+function(h){var m=pick([-4,-3,-2,2,3,4,5,6]),x1=R(0,4),dx=R(1,h?4:2),y1=R(-3,8),x2=x1+dx,y2=y1+m*dx;return Z('Find the gradient of the line through ('+x1+', '+N(y1)+') and ('+x2+', '+N(y2)+').','n',m,''+m,'Putting the fraction upside down (change in x ÷ change in y).',['Gradient = change in y ÷ change in x (how far up for each step across).','Change in y = '+N(y2)+' − ('+N(y1)+') = '+(y2-y1)+', change in x = '+x2+' − '+x1+' = '+dx,'Gradient = '+(y2-y1)+' ÷ '+dx+' = '+m])},
+function(h){var a=R(20,60),b=R(2,h?9:5);return Z('A candle is '+a+' cm tall and burns down '+b+' cm every hour. Write an equation for its height h cm after t hours.','e',function(v){return a-b*v.t},'h = '+a+' − '+b+'t','Writing h = '+a+'t − '+b+', swapping the start height and the rate.',['The start value is where the line begins; the rate multiplies t and is negative as the candle shrinks.','Start = '+a+', change = −'+b+' per hour','h = '+a+' − '+b+'t'],['t'])},
+function(h){var m=pick([-3,-2,2,3,4,5]),c=R(-4,9),p=R(1,3),k=m*p+c;if(h)return Z('A line has gradient '+m+' and passes through ('+p+', '+N(k)+'). Find its equation in the form y = mx + c.','e',function(v){return m*v.x+c},'y = '+lin(m,c),'Using '+N(k)+' as c instead of working c out.',['Substitute the point into y = mx + c to find c.',N(k)+' = '+m+' × '+p+' + c, so c = '+N(k)+' − ('+(m*p)+') = '+N(c),'y = '+lin(m,c)]);return Z('A line has gradient '+m+' and crosses the y-axis at (0, '+N(c)+'). Write its equation in the form y = mx + c.','e',function(v){return m*v.x+c},'y = '+lin(m,c),'Swapping m and c, or losing a negative sign.',['In y = mx + c, m is the gradient and c is where the line crosses the y-axis.','m = '+m+', c = '+N(c),'y = '+lin(m,c)])},
+function(h){var b=R(2,h?12:8),t=R(3,h?25:15),a=b*t;return Z('A tank holds '+a+' litres and empties at '+b+' litres every minute. After how many minutes is it empty?','n',t,''+t,'Subtracting '+b+' from '+a+' instead of finding how many '+b+'s fit into '+a+'.',['The tank is empty when the water reaches 0, so solve '+a+' − '+b+'t = 0.',a+' = '+b+'t','t = '+a+' ÷ '+b+' = '+t+' minutes'])}
+]];
+var SQ=[[0,0],[1,0],[0,1],[1,1],[2,0],[3,0],[2,1],[3,1],[4,0],[5,0],[4,1],[5,1]],LV=['Stage 1: Introductory','Stage 2: Developing','Stage 3: IGCSE Foundation'];
+function genW(t){return SQ.map(function(s,i){var q=TS[t][s[0]](s[1]);q.w=i%2;if(i%4==0)q.lv=LV[i/4];return q})}
+function ev(s,vs){var t=s.replace(/\s/g,'').replace(/−/g,'-').replace(/×/g,'*').replace(/÷/g,'/').replace(/^[A-Za-z]=/,'').replace(/\^/g,'**');
+ if(!/^[0-9A-Za-z+\-*\/().]+$/.test(t)||/[A-Za-z]\./.test(t))return null;
+ t=t.replace(/(\d|\))(?=[A-Za-z(])/g,'$1*').replace(/([A-Za-z])(?=[A-Za-z(])/g,'$1*').replace(/\)(?=\d)/g,')*');
+ return new Function(vs.join(','),'return '+t)}
+function test(q,v){try{
+ if(q.ty=='i'){var t=v.replace(/\s/g,'').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/−/g,'-'),m=t.match(/^([a-z])(<=|>=|<|>)(-?[\d.]+)$/),n=t.match(/^(-?[\d.]+)(<=|>=|<|>)([a-z])$/),F={'<':'>','>':'<','<=':'>=','>=':'<='},s,o,k;
+  if(m){s=m[1];o=m[2];k=+m[3]}else if(n){s=n[3];o=F[n[2]];k=+n[1]}else return false;
+  return s==q.f.s&&o==q.f.o&&Math.abs(k-q.f.n)<1e-9}
+ var g=ev(v,q.ty=='n'?[]:q.vs);if(!g)return false;
+ if(q.ty=='n')return Math.abs(g()-q.f)<1e-6;
+ return [[2,3],[5,-1],[4,7],[-2,6]].every(function(s){var o={};q.vs.forEach(function(k,j){o[k]=s[j%2]});return Math.abs(g.apply(null,q.vs.map(function(k){return o[k]}))-q.f(o))<1e-6})
+}catch(e){return false}}
+function pop(){var e=document.getElementById('score');e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')}
+var io=window.IntersectionObserver?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08}):null;
+function observe(){document.querySelectorAll('#qs .q,#qs h2').forEach(function(el){el.classList.add('rv');if(io)io.observe(el);else el.classList.add('in')})}
+/* music */
+var AC=null,mg=null,mt=null,bar=0,mon=false,CH=[[261.63,329.63,392,493.88],[220,261.63,329.63,392],[174.61,220,261.63,329.63],[196,246.94,293.66,392]];
+function tone(f,t,d,ty,v){var o=AC.createOscillator(),g=AC.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.06);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mg);o.start(t);o.stop(t+d+.05)}
+function playBar(){var t=AC.currentTime+.05,c=CH[bar++%4];c.forEach(function(f){tone(f/2,t,3.8,'triangle',.05)});
+ [0,1,2,3,2,1,2,3].forEach(function(k,j){if(Math.random()>.2)tone(c[k]*2,t+j*.45,1.3,'sine',.05)})}
+function toggleMusic(){var b=document.getElementById('mbtn');
+ try{if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();var lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=1800;mg=AC.createGain();mg.gain.value=1;mg.connect(lp);lp.connect(AC.destination)}
+ if(!mon){AC.resume();playBar();mt=setInterval(playBar,3600);mon=true;b.innerHTML='&#127925; Music: on'}
+ else{clearInterval(mt);AC.suspend();mon=false;b.innerHTML='&#127925; Music: off'}}catch(e){b.textContent='Music unavailable'}}
+function sfx(ok){if(!mon||!AC)return;var t=AC.currentTime;if(ok){tone(659.25,t,.4,'sine',.12);tone(880,t+.12,.6,'sine',.12);tone(1318.5,t+.24,.8,'sine',.08)}else tone(196,t,.6,'triangle',.12)}
+
+var P=[],cur=0,res={},done={},dl=null,box=document.getElementById('qs');
+try{claude.use('downloads').then(function(d){dl=d}).catch(function(){})}catch(e){}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function ln(f){return '<div class="ln"><span>'+(f?'':'=')+'</span><input aria-label="Working line"'+(f?' placeholder="Write the problem, then solve line by line"':'')+'></div>'}
+function lines(){return ln(1)+ln()+ln()}
+document.getElementById('menu').innerHTML='<p class="how">Choose a topic. Every worksheet has 12 questions, half sums and half word problems, rising from introductory to IGCSE Foundation level.</p><div class="cards">'+TOP.map(function(t,i){return '<button class="tc" onclick="start('+i+')"><span class="em">'+t[1]+'</span><b>'+t[0]+'</b><br>'+t[2]+'</button>'}).join('')+'</div>';
+function show(w){document.getElementById('menu').style.display=w?'none':'block';document.getElementById('ws').style.display=w?'block':'none';document.getElementById('score').style.display=w?'':'none';document.getElementById('ttl').textContent=w?TOP[cur][0]:'Algebra Notebook';window.scrollTo(0,0)}
+function start(i){cur=i;P=genW(i);res={};done={};show(1);render()}
+function home(){closeEnd();show(0)}
+function render(){box.innerHTML='';P.forEach(function(q,i){
+ if(q.lv){var h=document.createElement('h2');h.textContent=q.lv;box.appendChild(h)}
+ var d=document.createElement('div');d.className='q';
+ d.innerHTML='<p><span class="tg'+(q.w?' w':'')+'">'+(q.w?'Word':'Sum')+'</span>Q'+(i+1)+'. '+esc(q.q)+'</p><div class="wk" id="w'+i+'">'+lines()+'</div><div class="ctl"><button onclick="add('+i+')">+ Add line</button><button onclick="rem('+i+')">Remove line</button></div>'+
+ '<div class="ans">Answer = <input id="a'+i+'" aria-label="Final answer" placeholder="'+(q.ty=='n'?'a number':q.ty=='e'?'e.g. 3x + 2':'e.g. x > 4')+'"> <button class="go" onclick="chk('+i+')">Check answer</button> <button onclick="reset('+i+')">Try again</button></div><div class="fb" id="f'+i+'"></div><div class="bub" id="b'+i+'"></div>';
+ box.appendChild(d)});observe();upd()}
+function add(i){document.getElementById('w'+i).insertAdjacentHTML('beforeend',ln())}
+function rem(i){var g=document.getElementById('w'+i),r=g.querySelectorAll('.ln');if(r.length>2)g.removeChild(r[r.length-1])}
+function upd(){var c=0;for(var k in res)if(res[k])c++;document.getElementById('score').textContent='Score: '+c+' / '+P.length;pop()}
+function chk(i){var q=P[i],v=document.getElementById('a'+i).value.trim(),f=document.getElementById('f'+i),b=document.getElementById('b'+i);
+ if(!v){f.className='fb no';f.textContent='Write your answer first.';return}
+ var ok=test(q,v);res[i]=ok;done[i]=1;upd();sfx(ok);
+ f.className='fb '+(ok?'ok':'no');f.textContent=ok?'Correct! Well done.':'Not quite. Read the speech bubble below.';
+ if(ok){b.className='bub';b.innerHTML=''}else{
+  b.innerHTML='<p><b>💡 Let us work it out together</b></p><p><u>Likely slip:</u> '+esc(q.mis)+'</p><p><u>Reasoning:</u> '+esc(q.sol[0])+'</p><p><u>Worked solution:</u></p>'+q.sol.slice(1).map(function(l){return '<div class="sl">'+esc(l)+'</div>'}).join('')+'<p><u>Correct answer:</u> <b>'+esc(q.disp)+'</b></p>';
+  b.className='bub show'}}
+function reset(i){document.getElementById('w'+i).innerHTML=lines();document.getElementById('a'+i).value='';document.getElementById('f'+i).textContent='';var b=document.getElementById('b'+i);b.className='bub';b.innerHTML='';res[i]=false;done[i]=0;upd()}
+function endWS(){var c=0,L=[],cur2=null,S=[0,0];
+ P.forEach(function(q,i){if(q.lv){cur2={n:q.lv.replace(/^Stage \d: /,''),c:0,t:0};L.push(cur2)}cur2.t++;if(res[i]){c++;cur2.c++;S[q.w]++}});
+ var pc=Math.round(c/P.length*100),msg=pc>=90?'Outstanding work!':pc>=70?'Great job!':pc>=50?'Good effort. Re-read the speech bubbles and try again!':'Keep practising, you will get there!',un=P.length-Object.keys(done).filter(function(k){return done[k]}).length;
+ document.getElementById('endbody').innerHTML='<h3>'+TOP[cur][0]+' complete &#11088;</h3><div class="big">'+c+' / '+P.length+'</div><p style="margin:0 0 8px">'+pc+'% &middot; '+msg+'</p>'+L.map(function(l){return'<div class="lrow"><span>'+l.n+'</span><b>'+l.c+' / '+l.t+'</b></div>'}).join('')+'<div class="lrow"><span>Sums</span><b>'+S[0]+' / 6</b></div><div class="lrow"><span>Word problems</span><b>'+S[1]+' / 6</b></div>'+(un?'<p style="margin:8px 0 0;color:#c0392b">'+un+' question(s) were not checked.</p>':'');
+ document.getElementById('pdfmsg2').textContent='';document.getElementById('end').classList.add('show')}
+function closeEnd(){document.getElementById('end').classList.remove('show')}
+function newWS(){closeEnd();P=genW(cur);res={};done={};render();window.scrollTo(0,0)}
+function savePDF(){
+ var m={set textContent(t){document.getElementById('pdfmsg').textContent=t;document.getElementById('pdfmsg2').textContent=t}};
+ if(!window.jspdf){m.textContent='PDF library failed to load. Check your connection.';return}
+ var doc=new jspdf.jsPDF({unit:'mm',format:'a4'}),y=22,nm=document.getElementById('nm').value.trim();
+ function pg(){doc.setDrawColor(207,227,243);doc.setLineWidth(.2);for(var k=22;k<290;k+=8)doc.line(0,k,210,k);doc.setDrawColor(240,160,160);doc.line(14,0,14,297);y=22}
+ function tx(t,x,c,sz,st,al){doc.setTextColor(c[0],c[1],c[2]);doc.setFont('helvetica',st||'normal');doc.setFontSize(sz||11);doc.text(String(t),x,y+6,{align:al||'left'})}
+ pg();doc.setFont('helvetica','bold');doc.setFontSize(18);doc.setTextColor(60,60,60);doc.text('Algebra: '+TOP[cur][0],20,15);
+ tx('Name: '+(nm||'________________'),20,[29,79,216],11);tx(document.getElementById('score').textContent+'   '+new Date().toLocaleDateString(),190,[60,60,60],11,'normal','right');y+=8;
+ P.forEach(function(q,i){
+  var wl=[].slice.call(document.querySelectorAll('#w'+i+' .ln input')).map(function(x,k){return x.value.trim()?(k?'= ':'')+x.value.trim():''}).filter(Boolean),av=document.getElementById('a'+i).value.trim(),
+  ql=doc.splitTextToSize('Q'+(i+1)+'. '+q.q,172),h=(ql.length+wl.length+3)*8+(q.lv?16:0);
+  if(y+h>288){doc.addPage();pg()}
+  if(q.lv){y+=8;tx(q.lv,20,[106,168,32],13,'bold');y+=8}
+  ql.forEach(function(l){tx(l,20,[60,60,60],11);y+=8});
+  wl.forEach(function(l){tx(l,26,[29,79,216],13);y+=8});
+  tx('Answer = '+av,26,[29,79,216],12,'bold');
+  if(done[i])tx(res[i]?'Correct':'Not quite. Answer: '+q.disp,110,res[i]?[47,138,31]:[192,57,43],10,'bold');else tx(av?'Not checked':'Not attempted',110,[130,130,130],10);
+  y+=16});
+ var fn='Algebra-'+TOP[cur][0]+(nm?'-'+nm.replace(/[^\w-]+/g,'-'):'')+'.pdf';
+ if(dl){dl.save({filename:fn,data:doc.output('blob')}).then(function(){m.textContent='Saved.'}).catch(function(e){m.textContent=e&&e.code=='declined'?'Save cancelled.':'Could not save the PDF.'})}else{doc.save(fn);m.textContent='Saved.'}}
+show(0);
+</script>
+</body></html>
